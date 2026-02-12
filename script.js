@@ -1,32 +1,58 @@
+// ===============================
+// VARIÁVEIS E CONCATENAÇÃO
+// ===============================
+
 let nome = "Luan";
 console.log("Olá " + nome + "!");
 
-let idade = "24";
+let idade = "24"; // String
 console.log(idade);
 
-// let endereco = null; // NULL ( Vazio )
+// ===============================
+// NULL E VERIFICAÇÃO CONDICIONAL
+// ===============================
+
+// let endereco = null; // null = ausência intencional de valor
 // console.log(endereco);
 
 let endereco = "Rua das Conchas";
+
 if (endereco == null) {
   console.log("Este não existe endereço: ");
 } else {
   console.log("Este é o endereço: ", endereco);
 }
-// console.log("multiplicação: ", endereco * 2); // NULL (retorna zero)
+
+// console.log("multiplicação: ", endereco * 2);
+// Se fosse null, retornaria 0 em operações matemáticas
+
+// ===============================
+// COMPARAÇÃO E COERÇÃO EM CONDIÇÕES
+// ===============================
+
+// Mesmo sendo string, o JavaScript faz coerção
+// idade ("24") será convertida para número na comparação
 
 if (idade >= 18) {
   console.log("é maior de idade: " + idade + " anos");
 } else {
   console.log("Não é maior de idade!");
 }
+
 // let MaiordeIdade = idade >= 18;
 // console.log("É maior de idade: " + MaiordeIdade);
 
-let telefone; // UNDEFINED (Não foi defido um valor)
-// console.log("Telefone", telefone);
+// ===============================
+// UNDEFINED
+// ===============================
 
-// console.log("multiplicação: ", telefone * 2); // NaN (Not a number=Não é um número)
+// undefined = variável declarada, mas sem valor atribuído
+
+let telefone; // UNDEFINED (não foi definido um valor)
+
+// console.log("Telefone", telefone);
+// console.log("multiplicação: ", telefone * 2);
+// undefined em operação matemática retorna NaN (Not a Number)
 
 if (telefone) {
   console.log("Multiplicação: ", telefone * 2);
@@ -34,33 +60,62 @@ if (telefone) {
   console.log("Não existe telefone");
 }
 
-// No console do navegador os valores que estão na cor branca são strings e da cor roxa são números
+// ===============================
+// VALORES TRUTHY E FALSY
+// ===============================
 
-// Perceba que o valor NULL e UNDEFINED são tratados como falsos em contexto booleanos
-// Os valores string e numeros => São tratados como true em contextos booleanos
-// O zero(0) e string vazia ("") => São tratados como false em contexto booleano
+// No console do navegador:
+// - Valores brancos geralmente são strings
+// - Valores roxos geralmente são números
 
-// Em contextos de interações entre diferentes tipos de valores:
-//O que ele faz é uma coersão de tipos, o JavaScript tenta converter os valores para um tipo comum, exemplo => string para numero se eu tentar somar nome = "2" + 2 = 4 ou no caso de condicionais (no caso acima o if) onde pega o valor e transforma em booleano para tratar dentro do if.
+// null e undefined → são FALSY (false em contexto booleano)
+// 0 e "" (string vazia) → também são FALSY
+// Strings não vazias e números diferentes de 0 → são TRUTHY
 
-console.log("5" + 1); // Da "51" (string) => Ele esta concatenando string
+// Em contextos com tipos diferentes:
+// O JavaScript faz coerção de tipos automaticamente,
+// convertendo valores para um tipo comum quando necessário.
+
+// ===============================
+// EXEMPLOS DE COERÇÃO AUTOMÁTICA
+// ===============================
+
+console.log("5" + 1); // "51" (concatenação de string)
 console.log("5" - 1); // 4 (number)
 console.log("5" * 2); // 10 (number)
 console.log("5" / 2); // 2.5 (number)
 
+// ===============================
 // COERÇÃO EXPLÍCITA DE TIPOS
-let numero = 1; // NO CONSOLE DO NAVEGADOR O NÚMERO ESTÁ ROXO
-let numeroString = String(numero); // ELE TRANSFOMOU O NÚMERO 1 EM STRING
-let numeroNumero = Number(numeroString); // PEGOU O NÚMERO QUE ESTAVA EM STRING, E TRANSFORMOU ELE EM NUMBER
+// ===============================
+
+// Conversões feitas manualmente pelo programador
+
+let numero = 1; // No console aparece como número (roxo)
+
+let numeroString = String(numero);
+// Converte número para string
+
+let numeroNumero = Number(numeroString);
+// Converte string para número
+
 let segundoNumero = (123).toString();
+// Outra forma de converter número para string
 
 console.log(typeof numero, numero);
 console.log(numeroString);
 console.log(numeroNumero);
 console.log(segundoNumero);
 
-// O que acontece quando tento converter uma string ("Luan") em um número
+// ===============================
+// CONVERSÃO INVÁLIDA
+// ===============================
+
+// O que acontece ao converter uma string não numérica?
+
 let stringInvalida = "Luan";
 let stringInvalidaNumber = Number(stringInvalida);
+
 console.log(stringInvalidaNumber);
-console.log(typeof stringInvalidaNumber, stringInvalidaNumber); // number NaN (Not Number)
+console.log(typeof stringInvalidaNumber, stringInvalidaNumber);
+// Resultado: number NaN (Not a Number)
