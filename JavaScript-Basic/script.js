@@ -118,4 +118,4 @@ let stringInvalidaNumber = Number(stringInvalida);
 
 console.log(stringInvalidaNumber);
 console.log(typeof stringInvalidaNumber, stringInvalidaNumber);
-// Resultado: number NaN (Not a Number)
+// Resultado: number  (Not a Number)
